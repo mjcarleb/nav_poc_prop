@@ -39,27 +39,17 @@ for name in index_names:
 #    FUND PROFILES
 #############################################
 fund_names = ["Fund1", "Fund2", "Fund3"]
-fund_profiles = dict()
-fund_profiles['Fund1'] = (32.61, ["idx11", "idx12", "idx13"])
-fund_profiles['Fund2'] = (17.08, ["idx21", "idx22", "idx23"])
-fund_profiles['Fund3'] = (98.39, ["idx31", "idx32", "idx33"])
+fund_indices = dict()
+fund_indices['Fund1'] = ["idx11", "idx12", "idx13"]
+fund_indices['Fund2'] = ["idx21", "idx22", "idx23"]
+fund_indices['Fund3'] = ["idx31", "idx32", "idx33"]
 
 
 #############################################
-#    HISTORICAL FUND PRICES
+#    HISTORICAL FUND PRICE CHANGES
 #############################################
-fund_prices = dict()
+fund_changes = dict()
 for name in fund_names:
 
-    start_price = fund_profiles[name][0]
-    best_index = fund_profiles[name][1][0]
-    fund_prices[name] = start_price + start_price * market_changes * beta
-
-
-
-
-
-# Create 5 funds with list of indices
-
-
-
+    best_index = fund_indices[name][0]
+    fund_changes[name] = index_changes[best_index] + np.noraml.random(loc=0, scale=.0001)
